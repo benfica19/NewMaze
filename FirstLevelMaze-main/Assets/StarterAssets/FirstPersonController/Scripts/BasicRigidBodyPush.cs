@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BasicRigidBodyPush : MonoBehaviour
 {
@@ -31,5 +32,10 @@ public class BasicRigidBodyPush : MonoBehaviour
 
 		// Apply the push and take strength into account
 		body.AddForce(pushDir * strength, ForceMode.Impulse);
+
+		if (body.position.y < -4f)
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 	}
 }

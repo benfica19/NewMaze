@@ -14,8 +14,8 @@ public class CoinCollect : MonoBehaviour
     public float Force = 2000f;
     public Rigidbody rb;
 
-    //public Transform redGround;
-    //public Transform blueGround;
+    public Collider blueplatform_Collider;
+    public Collider redplatform_Collider;
 
     void OnTriggerEnter(Collider other)
     {
@@ -24,46 +24,44 @@ public class CoinCollect : MonoBehaviour
       {
 
           Destroy(other.gameObject);
-          gameManager.LoadColoredGrounds();
-
-      }
-
-      if(other.gameObject.name == "CHECKRED")
-      {
-          Destroy(other.gameObject);
-          blueCube  = GameObject.Find("CHECKBLUE");
+          blueCube  = GameObject.Find("BlueCoin");
           Destroy(blueCube);
-          isRedColor = true;
           gameManager.LoadColoredGrounds();
           game_analyticsManager.SendEvent("RED COIN COLLECTED LEVEL 1");
+          isRedColor = true;
+
       }
 
-      if(other.gameObject.name == "CHECKBLUE")
+      if(other.gameObject.tag == "BlueCoin")
       {
+
           Destroy(other.gameObject);
-          redCube  = GameObject.Find("CHECKBLUE");
+          redCube  = GameObject.Find("RedCoin");
           Destroy(redCube);
-          isBlueColor = false;
-          game_analyticsManager.SendEvent("BLUE COIN COLLECTED LEVEL 1");
           gameManager.LoadColoredGrounds();
+          game_analyticsManager.SendEvent("BLUE COIN COLLECTED LEVEL 1");
+          isBlueColor = true;
       }
 
-      if(other.gameObject.name == "RedPlatform" && isRedColor == true)
-      {
-          Destroy(other.gameObject);
+      if(other.gameObject.name == "RedPlatform" && isRedColor)
+     {
+           Destroy(other.gameObject);
+      }
+    if(other.gameObject.name == "RedPlatform" && !isRedColor){
+          redplatform_Collider.isTrigger = false;
       }
 
-      if(other.gameObject.name == "BluePlatform" && isBlueColor == true)
-      {
-          Destroy(other.gameObject);
-      }
 
-      if(other.gameObject.name == "Push")
-      {
-        pushBase  = GameObject.Find("Push");
-        rb.AddForce(0, 0, Force * Time.deltaTime);
 
+      if(other.gameObject.name == "BluePlatform" && isBlueColor)
+     {
+           Destroy(other.gameObject);
       }
+      if(other.gameObject.name == "BluePlatform" && !isBlueColor){
+            blueplatform_Collider.isTrigger = false;
+        }
 
     }
+
+
 }

@@ -250,15 +250,7 @@ namespace StarterAssets
 			}
 		}
 
-		private void OnCollisionEnter(Collision collision)
-		{
-				if(collision.gameObject.name == "RedPlatform")
-				{
-						Debug.Log("Print OBJECT FOUND");
-	//					//Destroy(collision.gameObject);
-				}
-				Debug.Log("Print COLLISION DETECTED");
-	}
+
 
 	private void OnTriggerEnter(Collider collision)
 	{
