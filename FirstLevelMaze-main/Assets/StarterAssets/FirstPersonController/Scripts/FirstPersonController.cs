@@ -64,10 +64,6 @@ namespace StarterAssets
 		private float _jumpTimeoutDelta;
 		private float _fallTimeoutDelta;
 
-		//red and blue
-		private bool isRedColour = false;
-		private bool isBlueColour = false;
-
 
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 		private PlayerInput _playerInput;
@@ -249,70 +245,6 @@ namespace StarterAssets
 				_verticalVelocity += Gravity * Time.deltaTime;
 			}
 		}
-
-
-
-	private void OnTriggerEnter(Collider collision)
-	{
-			if(collision.gameObject.tag == "RedCoin")
-			{
-					Destroy(collision.gameObject);
-					Debug.Log("Done Destroy");
-
-
-					//		if(collision.gameObject.name == "CHECK")
-					//		{
-					//Debug.Log("Print OBJECT SQUARE FOUND");
-									//Destroy(collision.gameObject);
-						//	}
-					//Destroy(collision.gameObject);
-					//Debug.Log("Print TRIGGER FOUND");
-					//Destroy(collision.gameObject);
-			}
-
-			if(collision.gameObject.name == "CHECKRED"){
-				Destroy(collision.gameObject);
-				isBlueColour = false;
-				isRedColour = true;
-				Debug.Log("BLUE" +isBlueColour + "  RED" +isRedColour);
-			}
-
-			if(collision.gameObject.name == "CHECKBLUE"){
-				Debug.Log("BLUE CUBE");
-				Destroy(collision.gameObject);
-				isRedColour = false;
-				isBlueColour = true;
-				Debug.Log("BLUE" +isBlueColour + "  RED" +isRedColour);
-			}
-
-			if(collision.gameObject.name == "RedPlatform"){
-				 Debug.Log("DETECTED RED");
-			}
-
-			if(collision.gameObject.name == "BluePlatform"){
-				 Debug.Log("DETECTED BLUE");
-			}
-
-		 /* if(collision.gameObject.name == "RedPlatform" && isRedColour == true){
-				//Destroy(collision.gameObject);
-				Debug.Log("DESTROED RED PLATFORM");
-			}else{
-				Debug.Log("ON RED");
-			}
-
-			if(collision.gameObject.name == "BluePlatform" && isBlueColour == true){
-				//Destroy(collision.gameObject);
-				Debug.Log("DESTROED BLUE PLATFORM");
-			}
-			else{
-				Debug.Log("ON BLUE");
-			}*/
-
-			Debug.Log("Print TRIGGER DETECTED");
-}
-
-
-
 
 		private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
 		{

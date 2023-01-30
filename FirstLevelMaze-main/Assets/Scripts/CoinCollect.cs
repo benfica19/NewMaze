@@ -47,7 +47,8 @@ public class CoinCollect : MonoBehaviour
      {
            Destroy(other.gameObject);
       }
-    if(other.gameObject.name == "RedPlatform" && !isRedColor){
+
+      if(other.gameObject.name == "RedPlatform" && !isRedColor){
           redplatform_Collider.isTrigger = false;
       }
 

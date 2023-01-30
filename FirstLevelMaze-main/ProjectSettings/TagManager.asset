@@ -7,6 +7,7 @@ TagManager:
   - CinemachineTarget
   - RedCoin
   - BlueCoin
+  - JumpPad
   layers:
   - Default
   - TransparentFX
