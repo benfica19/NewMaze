@@ -364,6 +364,7 @@
 "Assets/Scripts/CoinRotate.cs"
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/PlayerPush.cs"
+"Assets/Scripts/WallCollider.cs"
 "Assets/StarterAssets/FirstPersonController/Scripts/BasicRigidBodyPush.cs"
 "Assets/StarterAssets/FirstPersonController/Scripts/FirstPersonController.cs"
 "Assets/StarterAssets/InputSystem/StarterAssetsInputs.cs"
@@ -373,6 +374,7 @@
 "Assets/StarterAssets/Mobile/Scripts/VirtualInputs/UIVirtualJoystick.cs"
 "Assets/StarterAssets/Mobile/Scripts/VirtualInputs/UIVirtualTouchZone.cs"
 "Assets/StarterAssets/TutorialInfo/Scripts/Readme.cs"
+"Assets/wallCollider.cs"
 -langversion:9.0
 
 /deterministic
